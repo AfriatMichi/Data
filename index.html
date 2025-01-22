@@ -55,23 +55,47 @@
         .contact-item {
             flex-direction: row-reverse;
         }
+        .support-link {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 14px;
+        }
+        
+        .support-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .support-link a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <img src="https://www.hemdat.ac.il/wp-content/themes/binternet/assets/images/logo-full-v2.jpg" alt="Hemdat Logo" class="logo">
-        <h1> ספר טלפונים ארגוני </h1>
-        <h3 style="color: #666; margin-top: -10px;"> לפי סדר א-ב </h3>
+    <div id="mainContent">
+        <div class="header">
+            <img src="https://www.hemdat.ac.il/wp-content/themes/binternet/assets/images/logo-full-v2.jpg" alt="Hemdat Logo" class="logo">
+            <h1> ספר טלפונים ארגוני </h1>
+            <h3 style="color: #666; margin-top: -10px;"> לפי סדר א-ב </h3>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="חיפוש אנשי קשר...">
+        </div>
+        <ul id="contactList" class="contact-list">
+            <!-- Contacts will be loaded here -->
+        </ul>
+        <div class="support-link">
+            <a href="mailto:help@hemdat.ac.il?subject=עדכון%20ספר%20טלפונים&body=שלום,%0D%0A%0D%0Aברצוני לעדכן את הפרטים הבאים:%0D%0A%0D%0A">מצאתם טעות? עדכנו אותנו בלחיצה כאן</a>
+        </div>
     </div>
-    
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="חיפוש אנשי קשר...">
-    </div>
-    <ul id="contactList" class="contact-list">
-        <!-- Contacts will be loaded here -->
-    </ul>
 
     <script>
+        window.addEventListener('load', () => {
+            fetchContacts().then(contacts => displayContacts(contacts));
+        });
+
         async function fetchContacts() {
             try {
                 const response = await fetch('https://raw.githubusercontent.com/AfriatMichi/Data/refs/heads/main/Contact.xml');
@@ -113,6 +137,7 @@
                     <span class="contact-number">${officeNumber}</span>
                     <span class="contact-name">${displayName}</span>
                 `;
+
                 contactList.appendChild(li);
             });
         }
@@ -120,11 +145,6 @@
         document.getElementById('searchInput').addEventListener('input', function(e) {
             const searchTerm = e.target.value;
             fetchContacts().then(contacts => displayContacts(contacts, searchTerm));
-        });
-
-        // Initial load
-        window.addEventListener('load', () => {
-            fetchContacts().then(contacts => displayContacts(contacts));
         });
     </script>
 </body>
