@@ -3,97 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phone Book</title>
+    <title>ספר טלפונים - המדת</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            direction: rtl;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
-            direction: rtl;
         }
+
         .header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            animation: fadeInDown 0.8s ease-out;
         }
+
+        .logo-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: translateY(-5px);
+        }
+
         .logo {
-            max-width: 300px;
+            max-width: 280px;
             height: auto;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
         }
-        .search-container {
-            margin-bottom: 20px;
-        }
-        #searchInput {
-            padding: 8px;
-            width: 100%;
-            font-size: 16px;
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        .search-section {
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .search-container {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 18px 60px 18px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             text-align: right;
+            transition: all 0.3s ease;
+            outline: none;
         }
-        .contact-list {
-            list-style: none;
-            padding: 0;
+
+        .search-input:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 1);
         }
-        .contact-item {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
+
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            opacity: 0.6;
+        }
+
+        .contacts-grid {
+            display: grid;
+            gap: 20px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .contact-info {
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-        .contact-item:hover {
-            background-color: #f5f5f5;
-        }
-        .contact-name {
-            font-weight: bold;
-        }
-        .contact-number {
-            color: #666;
-        }
-        /* Reverse the order of name and number for RTL */
-        .contact-item {
             flex-direction: row-reverse;
         }
-        .support-link {
+
+        .contact-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .contact-number {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #667eea;
+            font-weight: 500;
+            font-size: 1rem;
+            direction: ltr;
+        }
+
+        .phone-icon {
+            width: 18px;
+            height: 18px;
+            opacity: 0.8;
+        }
+
+        .contact-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-left: 16px;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .support-section {
             text-align: center;
-            margin-top: 30px;
-            padding: 20px;
-            font-size: 14px;
+            margin-top: 50px;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
         }
-        
-        .support-link a {
-            color: #0066cc;
+
+        .support-link {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 16px 32px;
+            border-radius: 50px;
             text-decoration: none;
+            color: #667eea;
+            font-weight: 500;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
-        .support-link a:hover {
-            text-decoration: underline;
+
+        .support-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .title {
+                font-size: 2rem;
+            }
+
+            .contact-card {
+                padding: 20px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .contact-avatar {
+                margin: 10px 0 0 0;
+                align-self: flex-end;
+            }
         }
     </style>
 </head>
 <body>
-    <div id="mainContent">
+    <div class="container">
         <div class="header">
-            <img src="https://www.hemdat.ac.il/wp-content/themes/binternet/assets/images/logo-full-v2.jpg" alt="Hemdat Logo" class="logo">
-            <h1> ספר טלפונים ארגוני </h1>
-            <h3 style="color: #666; margin-top: -10px;"> לפי סדר א-ב </h3>
+            <div class="logo-container">
+                <img src="https://www.hemdat.ac.il/wp-content/themes/binternet/assets/images/logo-full-v2.jpg" alt="Hemdat Logo" class="logo">
+                <h1 class="title">ספר טלפונים ארגוני</h1>
+                <p class="subtitle">לפי סדר א-ב</p>
+            </div>
         </div>
         
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="חיפוש אנשי קשר...">
+        <div class="search-section">
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="חיפוש אנשי קשר...">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </div>
         </div>
-        <ul id="contactList" class="contact-list">
-            <!-- Contacts will be loaded here -->
-        </ul>
-        <div class="support-link">
-            <a href="mailto:help@hemdat.ac.il?subject=עדכון%20ספר%20טלפונים&body=שלום,%0D%0A%0D%0Aברצוני לעדכן את הפרטים הבאים:%0D%0A%0D%0A">מצאתם טעות? עדכנו אותנו בלחיצה כאן</a>
+
+        <div id="contactsContainer" class="contacts-grid">
+            <div class="loading">
+                <div class="spinner"></div>
+                טוען אנשי קשר...
+            </div>
+        </div>
+
+        <div class="support-section">
+            <a href="mailto:help@hemdat.ac.il?subject=עדכון%20ספר%20טלפונים&body=שלום,%0D%0A%0D%0Aברצוני לעדכן את הפרטים הבאים:%0D%0A%0D%0A" class="support-link">
+                מצאתם טעות? עדכנו אותנו בלחיצה כאן
+            </a>
         </div>
     </div>
 
     <script>
+        let allContacts = [];
+
         window.addEventListener('load', () => {
-            fetchContacts().then(contacts => displayContacts(contacts));
+            fetchContacts().then(contacts => {
+                allContacts = contacts;
+                displayContacts(contacts);
+            });
         });
 
         async function fetchContacts() {
@@ -105,13 +348,30 @@
                 return xmlDoc.getElementsByTagName('contact');
             } catch (error) {
                 console.error('Error fetching contacts:', error);
+                document.getElementById('contactsContainer').innerHTML = `
+                    <div class="no-results">
+                        שגיאה בטעינת אנשי הקשר. אנא נסו שוב מאוחר יותר.
+                    </div>
+                `;
                 return [];
             }
         }
 
+        function getInitials(name) {
+            return name.split(' ').map(word => word[0]).join('').substring(0, 2).toUpperCase();
+        }
+
         function displayContacts(contacts, searchTerm = '') {
-            const contactList = document.getElementById('contactList');
-            contactList.innerHTML = '';
+            const contactsContainer = document.getElementById('contactsContainer');
+            
+            if (contacts.length === 0) {
+                contactsContainer.innerHTML = `
+                    <div class="no-results">
+                        לא נמצאו אנשי קשר מתאימים לחיפוש "${searchTerm}"
+                    </div>
+                `;
+                return;
+            }
 
             // Convert to array and sort by display_name
             const sortedContacts = Array.from(contacts)
@@ -124,28 +384,49 @@
                 .sort((a, b) => {
                     const nameA = a.getAttribute('display_name');
                     const nameB = b.getAttribute('display_name');
-                    return nameA.localeCompare(nameB, 'he'); // Use Hebrew locale for proper sorting
+                    return nameA.localeCompare(nameB, 'he');
                 });
 
-            sortedContacts.forEach(contact => {
+            if (sortedContacts.length === 0 && searchTerm) {
+                contactsContainer.innerHTML = `
+                    <div class="no-results">
+                        לא נמצאו אנשי קשר מתאימים לחיפוש "${searchTerm}"
+                    </div>
+                `;
+                return;
+            }
+
+            contactsContainer.innerHTML = sortedContacts.map(contact => {
                 const displayName = contact.getAttribute('display_name');
                 const officeNumber = contact.getAttribute('office_number');
+                const initials = getInitials(displayName);
 
-                const li = document.createElement('li');
-                li.className = 'contact-item';
-                li.innerHTML = `
-                    <span class="contact-number">${officeNumber}</span>
-                    <span class="contact-name">${displayName}</span>
+                return `
+                    <div class="contact-card">
+                        <div class="contact-info">
+                            <div class="contact-details">
+                                <div class="contact-name">${displayName}</div>
+                                <div class="contact-number">
+                                    <svg class="phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                    </svg>
+                                    ${officeNumber}
+                                </div>
+                            </div>
+                            <div class="contact-avatar">${initials}</div>
+                        </div>
+                    </div>
                 `;
-
-                contactList.appendChild(li);
-            });
+            }).join('');
         }
 
         document.getElementById('searchInput').addEventListener('input', function(e) {
             const searchTerm = e.target.value;
-            fetchContacts().then(contacts => displayContacts(contacts, searchTerm));
+            displayContacts(allContacts, searchTerm);
         });
+
+        // Add smooth scroll behavior
+        document.documentElement.style.scrollBehavior = 'smooth';
     </script>
 </body>
-</html> 
+</html>
