@@ -1,6 +1,8 @@
 <?xml version="1.0" ?>
 <contacts refresh="0">
     <contact name="מרכז מידע-סילבי" number="200" firstname="מרכז" lastname="מידע-סילבי" phone="200" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
+   <contact name="מרכז שירות לסטודנט" number="200" firstname="מרכז שירות לסטודנט" lastname="מרכז שירות לסטודנט" phone="200" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
+      <contact name="מרכז תמיכה" number="200" firstname="מרכז תמיכה" lastname="מרכז תמיכה" phone="200" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
     <contact name="אסנת תורגמן" number="201" firstname="אסנת" lastname="תורגמן" phone="201" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
     <contact name="מירי כרמי" number="202" firstname="מירי" lastname="כרמי" phone="202" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
     <contact name="שונטל דמרי" number="203" firstname="שונטל" lastname="דמרי" phone="203" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
