@@ -1,8 +1,6 @@
 <?xml version="1.0" ?>
 <contacts refresh="0">
-    <contact name="מרכז מידע-סילבי" number="200" firstname="מרכז" lastname="מידע-סילבי" phone="200" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
    <contact name="מרכז שירות לסטודנט" number="200" firstname="מרכז שירות לסטודנט" lastname="מרכז שירות לסטודנט" phone="200" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
-      <contact name="מרכז תמיכה" number="200" firstname="מרכז תמיכה" lastname="מרכז תמיכה" phone="200" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
     <contact name="אסנת תורגמן" number="201" firstname="אסנת" lastname="תורגמן" phone="201" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
     <contact name="מירי כרמי" number="202" firstname="מירי" lastname="כרמי" phone="202" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
     <contact name="שונטל דמרי" number="203" firstname="שונטל" lastname="דמרי" phone="203" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
@@ -36,7 +34,7 @@
     <contact name="בלהה גבאי" number="231" firstname="בלהה" lastname="גבאי" phone="231" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
     <contact name="תמר ברינר" number="232" firstname="תמר" lastname="ברינר" phone="232" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
     <contact name="מיכל גלילי" number="234" firstname="מיכל" lastname="גלילי" phone="234" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
-    <contact name="אורית עמר" number="235" firstname="אורית" lastname="עמר" phone="235" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
+    <contact name="רביד מרכז מידע" number="235" firstname="אורית" lastname="עמר" phone="235" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
     <contact name="אלי קלינג" number="236" firstname="אלי" lastname="קלינג" phone="236" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
     <contact name="אורלי יוספי" number="237" firstname="אורלי" lastname="יוספי" phone="237" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
     <contact name="טליה לביא לוי" number="238" firstname="ענת" lastname="עטיה" phone="238" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
