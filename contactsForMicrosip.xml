@@ -39,14 +39,16 @@
     <contact name="אורלי יוספי" number="237" firstname="אורלי" lastname="יוספי" phone="237" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
     <contact name="טליה לביא לוי" number="238" firstname="ענת" lastname="עטיה" phone="238" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
     <contact name="ענבר בן שימול" number="239" firstname="ענבר" lastname="בן שימול" phone="239" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
-   <contact name="חן רוימי" number="240" firstname="פנוי" lastname="" phone="240" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
-   <contact name="אבישג רישום" number="241" firstname="פנוי" lastname="" phone="240" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
-   <contact name="פנוי" number="244" firstname="פנוי" lastname="" phone="244" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
+    <contact name="חן רוימי" number="240" firstname="פנוי" lastname="" phone="240" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
+    <contact name="אבישג רישום" number="241" firstname="אבישג רישום" lastname="" phone="241" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
+    <contact group_id_name="אילנית חקון משא" display_name="אילנית חקון משא" office_number="242" mobile_number="" other_number="" default_photo="Resource:"/>
+	 <contact group_id_name="אביה חדשנות" display_name="אביה חדשנות" office_number="243" mobile_number="" other_number="" default_photo="Resource:"/>
+    <contact name="פנוי" number="244" firstname="פנוי" lastname="" phone="244" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
     <contact name="יסמין" number="245" firstname="הדס" lastname="פפויפר" phone="245" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
-    <contact name="בת-שבע טטרו" number="247" firstname="מרים" lastname="שמעון" phone="247" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
+    <contact name="בת-שבע טטרו" number="247" firstname="בת שבע טטרו" lastname="שמעון" phone="247" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
     <contact name="יעל אזולאי" number="248" firstname="יעל" lastname="אזולאי" phone="248" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
-   <contact name="איתי אזולאי" number="249" firstname="פנוי" lastname="" phone="240" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
-   <contact name="אלינוי רישום" number="250" firstname="אלינוי" lastname="רישום" phone="250" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
+    <contact name="איתי אזולאי" number="249" firstname="איתי אזולאי" lastname="" phone="240" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
+    <contact name="אלינוי רישום" number="250" firstname="אלינוי" lastname="רישום" phone="250" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
     <contact name="עדן גרפיקאית" number="252" firstname="פנוי" lastname="" phone="252" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
     <contact name="מילכה רישום" number="256" firstname="נופר" lastname="רישום" phone="256" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
     <contact name="חרות זוביב" number="257" firstname="חרות" lastname="זוביב" phone="257" mobile="" email="" address="" city="" state="" zip="" comment="" presence="1" starred="0" info=""/>
